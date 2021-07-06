@@ -1,22 +1,21 @@
 var express=require('express');
 var app=express();
 
-const resources=["react","nodejs"];
+
+var bodyParser=require('body-parser');
+
+//url encoded data
+app.use(bodyParser.urlencoded({extended:false}));
+
+//parse json data
+app.use(bodyParser.json());
 
 
-app.get('/',(req,res)=>
+app.get('/things',(req,res)=>
 {
-    res.send("We are learning express");
-});
-
-
-app.get('/resources/:subject/:author',(req,res)=>
-{
-    if(resources.includes(req.params.subject))
-    res.send(`Sending the resources for ${req.params.subject} by author ${req.params.author}`);
-    else
-    res.send('Resources unavailable');
-});
+    console.log(req.body);
+    res.send("things");
+})
 
 app.listen(3000,()=>
 {
