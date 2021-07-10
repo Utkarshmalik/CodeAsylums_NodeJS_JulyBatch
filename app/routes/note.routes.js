@@ -8,7 +8,6 @@ app.get('/notes/:id',notes.findOne)
 app.put('/notes/:id',notes.update)
 app.delete('/notes/:id',notes.delete)
 
-
 }
 
 
