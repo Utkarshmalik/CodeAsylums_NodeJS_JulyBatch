@@ -1,5 +1,8 @@
 
-const Note=require('../models/note.model');
+const path = require('path');
+
+const Note=require(path.join(__dirname,'../models/note.model'));
+
 
 exports.create=(req,res)=>
 {

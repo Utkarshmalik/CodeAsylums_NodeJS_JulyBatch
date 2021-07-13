@@ -1,7 +1,13 @@
+
+const path = require('path');
+
+
+
 module.exports=(app)=>
 {
 
-const notes=require('../controllers/note.controller');
+    const notes=require(path.join(__dirname,'../controllers/note.controller'));
+
 app.post('/notes',notes.create);
 app.get('/notes',notes.findAll)
 app.get('/notes/:id',notes.findOne)
